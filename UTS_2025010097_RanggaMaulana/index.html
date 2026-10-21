@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Website Resmi Restoran Aroma Nusantara - Menyajikan Cita Rasa Kuliner Tradisional Asli Indonesia dengan Bahan Berkualitas Terbaik.">
+    <meta name="author" content="Restoran Aroma Nusantara">
+    <title>Restoran Aroma Nusantara | Kuliner Autentik Indonesia</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- HEADER & NAVIGASI -->
+    <header class="site-header">
+        <div class="container header-container">
+            <!-- Logo & Brand (Bebas Emoji) -->
+            <div class="brand">
+                <a href="#beranda" class="brand-link">
+                    <span class="brand-badge">AN</span>
+                    <div class="brand-text">
+                        <span class="brand-name">Aroma Nusantara</span>
+                        <span class="brand-tagline">Cita Rasa Warisan Leluhur</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Navigation Bar (Semantic HTML) -->
+            <nav class="main-nav" aria-label="Navigasi Utama">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#beranda" class="nav-link active">Beranda</a></li>
+                    <li class="nav-item"><a href="#tentang" class="nav-link">Tentang Kami</a></li>
+                    <li class="nav-item"><a href="#menu" class="nav-link">Menu Andalan</a></li>
+                    <li class="nav-item"><a href="#fasilitas" class="nav-link">Fasilitas</a></li>
+                    <li class="nav-item"><a href="#kontak" class="nav-link nav-btn">Reservasi</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- KONTEN UTAMA -->
+    <main>
+
+        <!-- 1. HERO SECTION -->
+        <section id="beranda" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <span class="hero-badge">Selamat Datang di Restoran Kami</span>
+                <h1 class="hero-title">Kehangatan Kuliner Nusantara di Setiap Suapan</h1>
+                <p class="hero-description">
+                    Nikmati kekayaan rempah-rempah autentik Indonesia yang diolah secara tradisional oleh koki berpengalaman. Dari rendang Minang hingga sate khas Madura, kami sajikan kelezatan terbaik untuk Anda dan keluarga.
+                </p>
+                <div class="hero-actions">
+                    <a href="#menu" class="btn btn-primary">Lihat Menu Favorit</a>
+                    <a href="#kontak" class="btn btn-outline">Reservasi Meja</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. TENTANG KAMI SECTION -->
+        <section id="tentang" class="about-section">
+            <div class="container about-container">
+                <div class="about-image-wrapper">
+                    <figure class="about-figure">
+                        <img src="images/about.jpg" alt="Suasana dapur dan koki Restoran Aroma Nusantara sedang memasak" class="about-img">
+                        <figcaption class="about-caption">Dapur Utama Aroma Nusantara - Selalu menyajikan masakan segar setiap hari.</figcaption>
+                    </figure>
+                </div>
+                <article class="about-content">
+                    <span class="section-badge">Tentang Kami</span>
+                    <h2 class="section-title">Dedikasi Melestarikan Warisan Rasa Nusantara Sejak 2012</h2>
+                    <p class="section-text">
+                        Restoran Aroma Nusantara didirikan dengan satu komitmen luhur: menghadirkan kembali kekayaan rasa masakan nusantara yang autentik ke hadapan para pecinta kuliner modern. Kami percaya bahwa masakan enak berakar dari bumbu alami tanpa pengawet buatan.
+                    </p>
+                    <p class="section-text">
+                        Setiap resep diracik dengan takaran rempah tradisional yang diturunkan lintas generasi. Dengan suasana ruang makan yang hangat dan nyaman, kami siap menjadi tempat berkumpul istimewa bagi Anda, keluarga, dan rekan kerja.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-number">100%</span>
+                            <span class="highlight-label">Bahan Alami & Halal</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-number">14+</span>
+                            <span class="highlight-label">Tahun Pengalaman</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-number">50+</span>
+                            <span class="highlight-label">Varian Menu Tradisional</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 3. MENU ANDALAN (MINIMAL 5 KARTU PRODUK) -->
+        <section id="menu" class="menu-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Menu Spesial</span>
+                    <h2 class="section-title">Pilihan Menu Favorit Pengunjung</h2>
+                    <p class="section-subtitle">
+                        Disajikan segar dengan racikan bumbu rempah asli nusantara pilihan koki terbaik kami.
+                    </p>
+                </div>
+
+                <!-- Grid Kartu Menu (6 Kartu Produk) -->
+                <div class="menu-grid">
+
+                    <!-- Kartu 1: Rendang Sapi Padang -->
+                    <article class="menu-card">
+                        <div class="card-image-box">
+                            <img src="images/rendang.jpg" alt="Rendang Daging Sapi Khas Minang" class="card-img">
+                            <span class="card-badge badge-popular">Best Seller</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-header-info">
+                                <span class="card-category">Khas Minangkabau</span>
+                                <div class="card-rating" aria-label="Rating 5 dari 5 bintang">★★★★★ <span class="rating-number">(5.0)</span></div>
+                            </div>
+                            <h3 class="card-title">Rendang Daging Sapi</h3>
+                            <p class="card-desc">
+                                Daging sapi premium yang dimasak perlahan selama 8 jam dengan santan murni dan rempah pilihan hingga empuk dan meresap sempurna.
+                            </p>
+                            <div class="card-footer">
+                                <div class="card-price">
+                                    <span class="price-currency">Rp</span>
+                                    <span class="price-value">55.000</span>
+                                </div>
+                                <a href="#kontak" class="card-action-btn">Pesan Meja</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Kartu 2: Sate Ayam Madura -->
+                    <article class="menu-card">
+                        <div class="card-image-box">
+                            <img src="images/sate-ayam.jpg" alt="Sate Ayam Madura Saus Kacang Gurih" class="card-img">
+                            <span class="card-badge badge-fav">Favorit Tamu</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-header-info">
+                                <span class="card-category">Khas Jawa Timur</span>
+                                <div class="card-rating" aria-label="Rating 4.9 dari 5 bintang">★★★★★ <span class="rating-number">(4.9)</span></div>
+                            </div>
+                            <h3 class="card-title">Sate Ayam Madura</h3>
+                            <p class="card-desc">
+                                Potongan daging ayam paha empuk dipanggang arang batok kelapa, disiram saus kacang legit, kecap manis, dan taburan bawang merah segar.
+                            </p>
+                            <div class="card-footer">
+                                <div class="card-price">
+                                    <span class="price-currency">Rp</span>
+                                    <span class="price-value">38.000</span>
+                                </div>
+                                <a href="#kontak" class="card-action-btn">Pesan Meja</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Kartu 3: Nasi Goreng Spesial -->
+                    <article class="menu-card">
+                        <div class="card-image-box">
+                            <img src="images/nasi-goreng.jpg" alt="Nasi Goreng Kampung Spesial Telur Mata Sapi" class="card-img">
+                            <span class="card-badge badge-chef">Chef Choice</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-header-info">
+                                <span class="card-category">Menu Klasik</span>
+                                <div class="card-rating" aria-label="Rating 4.8 dari 5 bintang">★★★★★ <span class="rating-number">(4.8)</span></div>
+                            </div>
+                            <h3 class="card-title">Nasi Goreng Spesial</h3>
+                            <p class="card-desc">
+                                Nasi pera beraroma asap kuali (wok hei), dipadukan suwiran ayam kampung, udang segar, telur ceplok setengah matang, dan kerupuk udang.
+                            </p>
+                            <div class="card-footer">
+                                <div class="card-price">
+                                    <span class="price-currency">Rp</span>
+                                    <span class="price-value">32.000</span>
+                                </div>
+                                <a href="#kontak" class="card-action-btn">Pesan Meja</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Kartu 4: Sup Buntut Sapi -->
+                    <article class="menu-card">
+                        <div class="card-image-box">
+                            <img src="images/sup-buntut.jpg" alt="Sup Buntut Sapi Kuah Kaldu Rempah" class="card-img">
+                            <span class="card-badge badge-signature">Signature</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-header-info">
+                                <span class="card-category">Khas Betawi</span>
+                                <div class="card-rating" aria-label="Rating 4.9 dari 5 bintang">★★★★★ <span class="rating-number">(4.9)</span></div>
+                            </div>
+                            <h3 class="card-title">Sup Buntut Rempah</h3>
+                            <p class="card-desc">
+                                Buntut sapi impor bertekstur lembut dalam kuah kaldu kaya pala, cengkeh, dan kapulaga. Disajikan bersama wortel manis dan sambal ijo segar.
+                            </p>
+                            <div class="card-footer">
+                                <div class="card-price">
+                                    <span class="price-currency">Rp</span>
+                                    <span class="price-value">65.000</span>
+                                </div>
+                                <a href="#kontak" class="card-action-btn">Pesan Meja</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Kartu 5: Ayam Bakar Bumbu Rujak -->
+                    <article class="menu-card">
+                        <div class="card-image-box">
+                            <img src="images/ayam-bakar.jpg" alt="Ayam Bakar Bumbu Rujak Tradisional" class="card-img">
+                            <span class="card-badge badge-spicy">Pedas Manis</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-header-info">
+                                <span class="card-category">Khas Jawa</span>
+                                <div class="card-rating" aria-label="Rating 4.8 dari 5 bintang">★★★★★ <span class="rating-number">(4.8)</span></div>
+                            </div>
+                            <h3 class="card-title">Ayam Bakar Bumbu Rujak</h3>
+                            <p class="card-desc">
+                                Ayam pejantan diungkep dalam bumbu kelapa pedas gurih, lalu dipanggang hingga karamelisasi aromatik dengan olesan madu hutan alami.
+                            </p>
+                            <div class="card-footer">
+                                <div class="card-price">
+                                    <span class="price-currency">Rp</span>
+                                    <span class="price-value">45.000</span>
+                                </div>
+                                <a href="#kontak" class="card-action-btn">Pesan Meja</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Kartu 6: Es Cendol Durian -->
+                    <article class="menu-card">
+                        <div class="card-image-box">
+                            <img src="images/es-cendol.jpg" alt="Es Cendol Nangka Durian Segar" class="card-img">
+                            <span class="card-badge badge-dessert">Dessert Segar</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-header-info">
+                                <span class="card-category">Minuman Penutup</span>
+                                <div class="card-rating" aria-label="Rating 5.0 dari 5 bintang">★★★★★ <span class="rating-number">(5.0)</span></div>
+                            </div>
+                            <h3 class="card-title">Es Cendol Durian Nangka</h3>
+                            <p class="card-desc">
+                                Butiran cendol daun pandan wangi asli, disiram gula merah aren murni, santan kelapa gurih, serutan es, dan topping daging durian medan manis.
+                            </p>
+                            <div class="card-footer">
+                                <div class="card-price">
+                                    <span class="price-currency">Rp</span>
+                                    <span class="price-value">22.000</span>
+                                </div>
+                                <a href="#kontak" class="card-action-btn">Pesan Meja</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. FASILITAS RESTORAN -->
+        <section id="fasilitas" class="facilities-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Kenyamanan Pengunjung</span>
+                    <h2 class="section-title">Fasilitas Lengkap untuk Anda</h2>
+                    <p class="section-subtitle">
+                        Kami menjamin kenyamanan santap Anda bersama keluarga dengan sarana terbaik dan higienis.
+                    </p>
+                </div>
+
+                <div class="facilities-grid">
+                    <div class="facility-card">
+                        <div class="facility-icon">
+                            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/>
+                                <circle cx="12" cy="12" r="2.5"/>
+                            </svg>
+                        </div>
+                        <h3 class="facility-title">Ruang Ber-AC & VIP</h3>
+                        <p class="facility-desc">Area santap sejuk bebas asap rokok serta ruang privat VIP untuk rapat, arisan, maupun acara keluarga.</p>
+                    </div>
+
+                    <div class="facility-card">
+                        <div class="facility-icon">
+                            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="4"/>
+                                <path d="M9 17V7h4a3 3 0 0 1 0 6H9"/>
+                            </svg>
+                        </div>
+                        <h3 class="facility-title">Area Parkir Luas</h3>
+                        <p class="facility-desc">Lahan parkir kendaraan roda dua dan empat yang aman dan dijaga petugas keamanan 24 jam gratis.</p>
+                    </div>
+
+                    <div class="facility-card">
+                        <div class="facility-icon">
+                            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12.55a11 11 0 0 1 14.08 0M1.42 9a16 16 0 0 1 21.16 0M8.53 16.11a6 6 0 0 1 6.95 0M12 20h.01"/>
+                            </svg>
+                        </div>
+                        <h3 class="facility-title">Koneksi Wi-Fi Cepat</h3>
+                        <p class="facility-desc">Internet nirkabel berkecepatan tinggi gratis yang dapat diakses oleh seluruh pengunjung restoran.</p>
+                    </div>
+
+                    <div class="facility-card">
+                        <div class="facility-icon">
+                            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 21h18M6 21V9a6 6 0 0 1 12 0v12M9 21v-5a3 3 0 0 1 6 0v5"/>
+                                <circle cx="12" cy="5" r="1"/>
+                            </svg>
+                        </div>
+                        <h3 class="facility-title">Musholla & Toilet Bersih</h3>
+                        <p class="facility-desc">Tempat ibadah yang bersih dan nyaman lengkap dengan peralatan sholat serta sanitasi terawat prima.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. FORMULIR KONTAK & RESERVASI (SEMANTIC FORM) -->
+        <section id="kontak" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Hubungi Kami</span>
+                    <h2 class="section-title">Reservasi Meja & Layanan Pelanggan</h2>
+                    <p class="section-subtitle">
+                        Rencanakan momen bersantap istimewa Anda tanpa perlu antre dengan melakukan reservasi daring di bawah ini.
+                    </p>
+                </div>
+
+                <div class="contact-layout">
+
+                    <!-- Kartu Informasi Kontak (Aside Semantic) -->
+                    <aside class="contact-info-card">
+                        <h3 class="info-title">Informasi Restoran</h3>
+                        <p class="info-intro">
+                            Silakan kunjungi lokasi kami atau hubungi nomor layanan pelanggan untuk informasi acara khusus dan pemesanan catering.
+                        </p>
+
+                        <div class="info-list">
+                            <div class="info-item">
+                                <span class="info-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                </span>
+                                <div>
+                                    <strong>Alamat Kami:</strong>
+                                    <address class="info-address">
+                                        Jl. Rasa Nusantara No. 88, Kebayoran Baru, Jakarta Selatan, DKI Jakarta 12180
+                                    </address>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <span class="info-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <polyline points="12 6 12 12 16 14"/>
+                                    </svg>
+                                </span>
+                                <div>
+                                    <strong>Jam Operasional:</strong>
+                                    <p>Senin - Jumat: 10.00 - 22.00 WIB</p>
+                                    <p>Sabtu - Minggu: 09.00 - 23.00 WIB</p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <span class="info-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                    </svg>
+                                </span>
+                                <div>
+                                    <strong>Telepon / WhatsApp:</strong>
+                                    <p><a href="tel:+6281234567890">+62 812-3456-7890</a></p>
+                                </div>
+                            </div>
+
+                            <div class="info-item">
+                                <span class="info-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                                    </svg>
+                                </span>
+                                <div>
+                                    <strong>Surel Resmi:</strong>
+                                    <p><a href="mailto:halo@aromanusantara.com">halo@aromanusantara.com</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-note">
+                            <p><strong>Catatan:</strong> Konfirmasi reservasi akan dikirimkan otomatis melalui WhatsApp / Email dalam waktu maksimal 15 menit.</p>
+                        </div>
+                    </aside>
+
+                    <!-- Formulir Kontak & Reservasi -->
+                    <div class="reservation-form-wrapper">
+                        <form action="#" method="post" class="reservation-form">
+                            <fieldset class="form-fieldset">
+                                <legend class="form-legend">Formulir Pemesanan Meja</legend>
+
+                                <!-- Baris Nama & Email -->
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="nama" class="form-label">Nama Lengkap <span class="required">*</span></label>
+                                        <input type="text" id="nama" name="nama" class="form-input" placeholder="Contoh: Budi Santoso" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">Alamat Email <span class="required">*</span></label>
+                                        <input type="email" id="email" name="email" class="form-input" placeholder="nama@email.com" required>
+                                    </div>
+                                </div>
+
+                                <!-- Baris Nomor HP & Jumlah Tamu -->
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="telepon" class="form-label">Nomor WhatsApp/HP <span class="required">*</span></label>
+                                        <input type="tel" id="telepon" name="telepon" class="form-input" placeholder="081234567890" pattern="[0-9]{10,13}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="jumlah_tamu" class="form-label">Jumlah Tamu <span class="required">*</span></label>
+                                        <select id="jumlah_tamu" name="jumlah_tamu" class="form-select" required>
+                                            <option value="" disabled selected>Pilih kapasitas meja...</option>
+                                            <option value="1-2">1 - 2 Orang (Meja Intim)</option>
+                                            <option value="3-4">3 - 4 Orang (Meja Keluarga Kecil)</option>
+                                            <option value="5-8">5 - 8 Orang (Rombongan Sedang)</option>
+                                            <option value="9+">Lebih dari 8 Orang (Private Area)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Baris Tanggal & Waktu Kedatangan -->
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="tanggal" class="form-label">Tanggal Reservasi <span class="required">*</span></label>
+                                        <input type="date" id="tanggal" name="tanggal" class="form-input" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="jam" class="form-label">Waktu Kedatangan <span class="required">*</span></label>
+                                        <input type="time" id="jam" name="jam" class="form-input" required>
+                                    </div>
+                                </div>
+
+                                <!-- Pilihan Area Duduk (Radio Button) -->
+                                <div class="form-group">
+                                    <label class="form-label">Pilihan Area Santap</label>
+                                    <div class="radio-options">
+                                        <label class="radio-label">
+                                            <input type="radio" name="area_meja" value="indoor" checked>
+                                            <span>Indoor (Bebas Asap)</span>
+                                        </label>
+                                        <label class="radio-label">
+                                            <input type="radio" name="area_meja" value="outdoor">
+                                            <span>Outdoor (Taman Terbuka)</span>
+                                        </label>
+                                        <label class="radio-label">
+                                            <input type="radio" name="area_meja" value="vip">
+                                            <span>VIP Room (Privat)</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Catatan Khusus / Pesan -->
+                                <div class="form-group">
+                                    <label for="pesan" class="form-label">Catatan Tambahan (Opsional)</label>
+                                    <textarea id="pesan" name="pesan" rows="4" class="form-textarea" placeholder="Tuliskan jika ada alergi makanan, permintaan baby chair, atau dekorasi ulang tahun..."></textarea>
+                                </div>
+
+                                <!-- Checkbox Konfirmasi -->
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" name="syarat" id="syarat" required>
+                                        <span>Saya menyatakan data yang diisi sudah benar dan bersedia hadir tepat waktu sesuai jadwal reservasi.</span>
+                                    </label>
+                                </div>
+
+                                <!-- Tombol Kirim Form -->
+                                <div class="form-action">
+                                    <button type="submit" class="btn btn-submit">Kirim Reservasi Sekarang</button>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <!-- Kolom 1: Profil Ringkas -->
+                <div class="footer-col footer-about">
+                    <div class="brand footer-brand">
+                        <span class="brand-badge">AN</span>
+                        <div class="brand-text">
+                            <span class="brand-name">Aroma Nusantara</span>
+                            <span class="brand-tagline">Cita Rasa Warisan Leluhur</span>
+                        </div>
+                    </div>
+                    <p class="footer-desc">
+                        Menghadirkan kehangatan dan keaslian cita rasa kuliner tradisional nusantara dengan pelayanan ramah dan suasana yang berkesan.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" aria-label="Instagram">Instagram</a>
+                        <a href="#" class="social-btn" aria-label="Facebook">Facebook</a>
+                        <a href="#" class="social-btn" aria-label="TikTok">TikTok</a>
+                    </div>
+                </div>
+
+                <!-- Kolom 2: Jam Operasional -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Jam Operasional</h4>
+                    <ul class="footer-list">
+                        <li><span>Senin - Kamis:</span> <time datetime="10:00">10.00</time> - <time datetime="22:00">22.00 WIB</time></li>
+                        <li><span>Jumat:</span> <time datetime="13:00">13.00</time> - <time datetime="22.00">22.00 WIB</time></li>
+                        <li><span>Sabtu - Minggu:</span> <time datetime="09:00">09.00</time> - <time datetime="23:00">23.00 WIB</time></li>
+                    </ul>
+                </div>
+
+                <!-- Kolom 3: Tautan Navigasi -->
+                <div class="footer-col">
+                    <h4 class="footer-heading">Tautan Cepat</h4>
+                    <ul class="footer-links">
+                        <li><a href="#beranda">Beranda</a></li>
+                        <li><a href="#tentang">Tentang Kami</a></li>
+                        <li><a href="#menu">Menu Andalan</a></li>
+                        <li><a href="#fasilitas">Fasilitas</a></li>
+                        <li><a href="#kontak">Kontak & Reservasi</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 <strong>Restoran Aroma Nusantara</strong>. Seluruh hak cipta dilindungi undang-undang.</p>
+                <p class="footer-credit">Dibuat menggunakan HTML5 & CSS3 Murni (Semantic HTML, Box Model & CSS Layouting).</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

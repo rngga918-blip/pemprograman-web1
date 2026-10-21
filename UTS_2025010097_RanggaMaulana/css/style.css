@@ -1,0 +1,1142 @@
+/*    TUGAS UTS: WEBSITE RESTORAN SEDERHANA
+   Topik: Restoran Aroma Nusantara
+   Teknologi: Pure HTML5 & CSS3 (Tanpa Framework / Tanpa JavaScript)
+   Menerapkan: Semantic HTML, CSS Dasar, Box Model, dan CSS Layouting (Flexbox & Grid) */
+
+/*    1. CSS VARIABLES (DESIGN TOKENS)
+   Menyimpan variabel warna, tipografi, dan spasi agar konsisten & rapi. */
+:root {
+    /* Palet Warna Restoran (Warm Nusantara Palette) */
+    --primary-color: #B45309;        /* Warm Amber / Cokelat Rempah */
+    --primary-hover: #92400E;        /* Darker Amber saat hover */
+    --primary-light: #FEF3C7;        /* Soft Amber background */
+    --accent-color: #D97706;         /* Golden Orange */
+    --accent-red: #B91C1C;           /* Spicy Red untuk badge */
+    
+    /* Warna Netral & Teks */
+    --bg-main: #FAFAF8;             /* Cream lembut untuk background utama */
+    --bg-card: #FFFFFF;             /* Putih murni untuk kartu */
+    --bg-dark: #1F2421;             /* Dark charcoal / espresso untuk header & footer */
+    --bg-alt: #F4F1EA;              /* Background selang-seling section */
+    
+    --text-primary: #1F2937;        /* Teks gelap utama */
+    --text-muted: #4B5563;          /* Teks deskripsi / sekunder */
+    --text-light: #F9FAFB;          /* Teks terang di area gelap */
+    
+    /* Garis & Bayangan */
+    --border-color: #E5E7EB;
+    --border-card: #EADBC8;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+    --shadow-hover: 0 16px 32px rgba(180, 83, 9, 0.18);
+    
+    /* Tipografi */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    
+    /* Transisi Halus */
+    --transition: all 0.3s ease-in-out;
+    
+    /* Radius */
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+}
+
+/*    2. BOX MODEL & RESET DASAR
+   Prinsip Box Model: 'box-sizing: border-box' memastikan padding dan border
+   dihitung ke dalam total lebar (width) dan tinggi (height) elemen. */
+*, *::before, *::after {
+    box-sizing: border-box; /* Penerapan Box Model Konsisten */
+    margin: 0;              /* Reset margin default browser */
+    padding: 0;             /* Reset padding default browser */
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling native tanpa JavaScript */
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-primary);
+    background-color: var(--bg-main);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Container pembatas lebar konten di layar lebar (Box Model: margin auto & padding) */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/*    3. TYPOGRAPHY & KOMPONEN UMUM */
+.section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3.5rem auto;
+}
+
+.section-badge {
+    display: inline-block;
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0.35rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 0.85rem;
+    border: 1px solid rgba(180, 83, 9, 0.2);
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+/* Tombol / Call To Action (Penerapan Box Model: padding, border, radius) */
+.btn {
+    display: inline-block;
+    padding: 0.85rem 1.85rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    box-shadow: 0 4px 14px rgba(180, 83, 9, 0.35);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(180, 83, 9, 0.45);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+}
+
+.btn-outline:hover {
+    background-color: #FFFFFF;
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+/*    4. HEADER & NAVIGATION (CSS LAYOUTING: FLEXBOX & POSITION STICKY) */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: rgba(31, 36, 33, 0.96);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.header-container {
+    display: flex;                  /* CSS Layouting: Flexbox */
+    justify-content: space-between; /* Pisahkan Logo & Navigasi */
+    align-items: center;            /* Sejajarkan vertikal */
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* Logo Brand */
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.brand-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: #FFFFFF;
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    letter-spacing: 1px;
+    box-shadow: 0 2px 8px rgba(180, 83, 9, 0.4);
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-name {
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    letter-spacing: 0.5px;
+}
+
+.brand-tagline {
+    font-size: 0.72rem;
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+/* Navigation List */
+.nav-list {
+    display: flex;                  /* Flexbox untuk item navigasi horizontal */
+    align-items: center;
+    gap: 1.75rem;
+}
+
+.nav-link {
+    color: #D1D5DB;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.5rem 0.2rem;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #FFFFFF;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-btn {
+    background-color: var(--primary-color);
+    color: #FFFFFF !important;
+    padding: 0.55rem 1.35rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+}
+
+.nav-btn::after {
+    display: none;
+}
+
+.nav-btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+/*    5. HERO SECTION (CSS LAYOUTING: POSITIONING & FLEXBOX) */
+.hero-section {
+    position: relative;
+    min-height: 85vh;
+    background: url('../images/hero-bg.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(15, 18, 16, 0.88) 0%, rgba(31, 36, 33, 0.75) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.hero-badge {
+    display: inline-block;
+    background-color: rgba(217, 119, 6, 0.25);
+    color: #FDE68A;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.4rem 1.1rem;
+    border-radius: 50px;
+    border: 1px solid rgba(253, 230, 138, 0.35);
+    margin-bottom: 1.5rem;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    color: #FFFFFF;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.hero-description {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #E5E7EB;
+    margin-bottom: 2.25rem;
+    max-width: 680px;
+}
+
+.hero-actions {
+    display: flex;                  /* Flexbox untuk tombol berdampingan */
+    flex-wrap: wrap;
+    gap: 1.25rem;
+}
+
+/*    6. TENTANG KAMI SECTION (CSS LAYOUTING: FLEXBOX 2 KOLOM) */
+.about-section {
+    padding: 6rem 0;
+    background-color: #FFFFFF;
+}
+
+.about-container {
+    display: flex;                  /* Flexbox layouting */
+    align-items: center;
+    gap: 4rem;
+}
+
+.about-image-wrapper {
+    flex: 1;                        /* Mengambil 50% ruang */
+}
+
+.about-figure {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 8px solid #FFFFFF;
+    outline: 1px solid var(--border-card);
+}
+
+.about-img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.about-figure:hover .about-img {
+    transform: scale(1.03);
+}
+
+.about-caption {
+    background-color: var(--bg-dark);
+    color: #D1D5DB;
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 0.75rem 1rem;
+    font-style: italic;
+}
+
+.about-content {
+    flex: 1;                        /* Mengambil 50% ruang */
+}
+
+.about-content .section-badge {
+    margin-bottom: 1rem;
+}
+
+.about-content .section-title {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.section-text {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+}
+
+.about-highlights {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.highlight-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.highlight-number {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1;
+    margin-bottom: 0.35rem;
+}
+
+.highlight-label {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+/*    7. MENU ANDALAN (CSS LAYOUTING: CSS GRID & BOX MODEL KARTU) */
+.menu-section {
+    padding: 6rem 0;
+    background-color: var(--bg-alt);
+}
+
+/* Grid Layouting untuk kartu produk */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); /* Responsif otomatis */
+    gap: 2.25rem;
+}
+
+/* Box Model Kartu Menu */
+.menu-card {
+    background-color: var(--bg-card);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-card);
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+}
+
+.menu-card:hover {
+    transform: translateY(-8px);    /* Efek melayang saat kursor diarahkan */
+    box-shadow: var(--shadow-hover);
+    border-color: var(--primary-color);
+}
+
+.card-image-box {
+    position: relative;
+    height: 230px;
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.menu-card:hover .card-img {
+    transform: scale(1.08);
+}
+
+/* Badge Kategori Menu (Position Absolute) */
+.card-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.badge-popular { background-color: #B91C1C; } /* Merah */
+.badge-fav { background-color: #D97706; }     /* Oranye */
+.badge-chef { background-color: #047857; }    /* Hijau */
+.badge-signature { background-color: #4338CA;}/* Indigo */
+.badge-spicy { background-color: #DC2626; }   /* Merah terang */
+.badge-dessert { background-color: #0891B2; } /* Cyan */
+
+/* Isi Tubuh Kartu */
+.card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Mengisi tinggi secara merata */
+}
+
+.card-header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.6rem;
+}
+
+.card-category {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-rating {
+    font-size: 0.85rem;
+    color: #F59E0B;
+}
+
+.rating-number {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-left: 2px;
+}
+
+.card-title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.65rem;
+}
+
+.card-desc {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Mendorong footer kartu ke bawah secara rata */
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--border-color);
+}
+
+.card-price {
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+}
+
+.price-currency {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.price-value {
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.card-action-btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    border: 1px solid rgba(180, 83, 9, 0.25);
+    transition: var(--transition);
+}
+
+.card-action-btn:hover {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+}
+
+/*    8. FASILITAS RESTORAN (CSS LAYOUTING: GRID) */
+.facilities-section {
+    padding: 6rem 0;
+    background-color: #FFFFFF;
+}
+
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.facility-card {
+    background-color: var(--bg-main);
+    padding: 2.25rem 1.75rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.facility-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--accent-color);
+    background-color: #FFFFFF;
+}
+
+.facility-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 1.25rem auto;
+    border-radius: 50%;
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.facility-card:hover .facility-icon {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    transform: scale(1.08);
+}
+
+.facility-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+}
+
+.facility-desc {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+/*    9. FORMULIR KONTAK & RESERVASI (BOX MODEL & FORM LAYOUTING) */
+.contact-section {
+    padding: 6rem 0;
+    background-color: var(--bg-alt);
+}
+
+/* Grid Layout: Kolom Info & Kolom Form */
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.65fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+/* Kartu Info (Aside) */
+.contact-info-card {
+    background-color: var(--bg-dark);
+    color: #FFFFFF;
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+}
+
+.info-title {
+    font-family: var(--font-heading);
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.75rem;
+    display: inline-block;
+}
+
+.info-intro {
+    color: #D1D5DB;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.info-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-sm);
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--accent-color);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.info-item strong {
+    display: block;
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+}
+
+.info-address {
+    font-style: normal;
+    color: #E5E7EB;
+    font-size: 0.92rem;
+}
+
+.info-item p,
+.info-item a {
+    color: #E5E7EB;
+    font-size: 0.92rem;
+}
+
+.info-item a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.info-note {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-left: 3px solid var(--accent-color);
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    color: #D1D5DB;
+}
+
+/* Wrapper Formulir */
+.reservation-form-wrapper {
+    background-color: #FFFFFF;
+    padding: 2.75rem 2.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-card);
+}
+
+.form-fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.form-legend {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+}
+
+/* Flexbox Baris Form */
+.form-row {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.25rem;
+}
+
+.form-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.45rem;
+}
+
+.required {
+    color: var(--accent-red);
+}
+
+/* Styling Input Box Model */
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    background-color: #FAFAF9;
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 3px rgba(180, 83, 9, 0.15);
+}
+
+.form-textarea {
+    resize: vertical;
+}
+
+/* Pilihan Radio Button */
+.radio-options {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-top: 0.35rem;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.radio-label input[type="radio"] {
+    accent-color: var(--primary-color);
+    width: 1.1rem;
+    height: 1.1rem;
+    cursor: pointer;
+}
+
+/* Checkbox */
+.checkbox-group {
+    margin-top: 0.5rem;
+    margin-bottom: 1.75rem;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    line-height: 1.45;
+}
+
+.checkbox-label input[type="checkbox"] {
+    accent-color: var(--primary-color);
+    width: 1.15rem;
+    height: 1.15rem;
+    margin-top: 2px;
+    cursor: pointer;
+}
+
+/* Tombol Submit */
+.btn-submit {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    padding: 1rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 14px rgba(180, 83, 9, 0.3);
+}
+
+.btn-submit:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(180, 83, 9, 0.4);
+}
+
+/*    10. FOOTER (CSS LAYOUTING: FLEXBOX 4 KOLOM) */
+.site-footer {
+    background-color: var(--bg-dark);
+    color: #9CA3AF;
+    padding-top: 5rem;
+    border-top: 4px solid var(--primary-color);
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 3rem;
+    padding-bottom: 3.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-about {
+    flex: 1.4;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.footer-desc {
+    color: #9CA3AF;
+    font-size: 0.92rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.social-btn {
+    display: inline-block;
+    padding: 0.4rem 0.85rem;
+    font-size: 0.82rem;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #E5E7EB;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.social-btn:hover {
+    background-color: var(--primary-color);
+    color: #FFFFFF;
+    border-color: var(--primary-color);
+}
+
+.footer-heading {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 1.25rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 35px;
+    height: 2px;
+    background-color: var(--accent-color);
+}
+
+.footer-list li,
+.footer-links li {
+    font-size: 0.9rem;
+    margin-bottom: 0.65rem;
+    color: #D1D5DB;
+}
+
+.footer-links a {
+    color: #9CA3AF;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+    padding-left: 4px;
+}
+
+/* Bagian Bawah Footer */
+.footer-bottom {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: #9CA3AF;
+}
+
+.footer-credit {
+    font-size: 0.8rem;
+    color: #6B7280;
+}
+
+/*    11. RESPONSIVE DESIGN (CSS MEDIA QUERIES)
+   Menerapkan penyesuaian Box Model & Layouting untuk Tablet & Mobile. */
+
+/* Tablet (Layar <= 992px) */
+@media (max-width: 992px) {
+    .about-container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .about-image-wrapper {
+        width: 100%;
+    }
+
+    .about-img {
+        height: 380px;
+    }
+
+    .contact-layout {
+        grid-template-columns: 1fr; /* Form dan Info kontak bertumpuk */
+        gap: 2.5rem;
+    }
+
+    .hero-title {
+        font-size: 2.85rem;
+    }
+}
+
+/* Mobile & Tablet Kecil (Layar <= 768px) */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .nav-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .hero-section {
+        min-height: 75vh;
+        text-align: center;
+    }
+
+    .hero-content {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .hero-title {
+        font-size: 2.25rem;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .section-title {
+        font-size: 1.95rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr; /* Satu kolom kartu penuh di ponsel */
+    }
+
+    .footer-top {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Ponsel Kecil (Layar <= 480px) */
+@media (max-width: 480px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .hero-title {
+        font-size: 1.85rem;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .reservation-form-wrapper {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .contact-info-card {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .radio-options {
+        flex-direction: column;
+        gap: 0.65rem;
+    }
+
+    .about-highlights {
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+}
